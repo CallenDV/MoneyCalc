@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MoneyCalc</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+
+  .container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>MoneyCalc</h2>
+  <input type="number" id="income" placeholder="Weekly income ($)">
+  <input type="number" id="goal" placeholder="Goal amount ($)">
+  <button onclick="calculateWeeks()">Calculate</button>
+  <p id="result"></p>
+</div>
+
+<script>
+  function calculateWeeks() {
+    var income = document.getElementById('income').value;
+    var goal = document.getElementById('goal').value;
+
+    if (income <= 0 || goal <= 0) {
+      alert('Please enter valid numbers for income and goal.');
+      return;
+    }
+
+    var weeks = Math.ceil(goal / income);
+    document.getElementById('result').innerHTML = 'It will take ' + weeks + ' weeks to reach your goal.';
+  }
+</script>
+</body>
+</html>
